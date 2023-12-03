@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FAQ問與答</title>
+        <link rel="stylesheet" href="./faq.css">
+</head>
+
+
+<body>
+  <h2>Frequently Asked Questions</h2>
+  <div>
+    <details open>
+      <summary>
+        How do you create an accordion?
+      </summary>
+      <div>
+        Easy! As long as you don't have to support IE11 or older browsers you could use <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> natively.
+      </div>
+    </details>
+    <details>
+      <summary>
+        What if I have to support IE11 or older browsers?
+      </summary>
+      <div>
+        No worries. The fallback for these elements is quite good. They will display as open. You won't get the open/close mechanism, but you won't lose any content either.
+      </div>
+    </details>
+    <details>
+      <summary>
+        What type of content can I have inside one of these?
+      </summary>
+      <div>
+        Almost anything you'd like. The <code>&lt;details&gt;</code> element allows all <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories#flow_content" target="_blank">flow content</a>, which is basically everything.
+      </div>
+    </details>
+    <details>
+      <summary>
+        How does it work?
+      </summary>
+      <div>
+        The <code>&lt;details&gt;</code> element encapsulates the <code>&lt;summary&gt;</code> element. The <code>&lt;summary&gt;</code> becomes the 'label' for the <code>&lt;details&gt;</code> and acts like a button. When clicked, the attribute <code>open</code> is added to the <code>&lt;details&gt;</code> element, making it display. You can therefore style the open and closed states seperately if you'd like.
+      </div>
+    </details>
+  </div>
+  
+  <section id="contact">
+    <div class="sectionheader">	<h1>CONTACT</h1></div>
+    <article>
+    <p>Yoda soon you will call me master Governor Tarkin. A new hope Boba Fett bantha forest moon. Tusken raider Master Yoda do or do not never tell me the odds.</p>
+      
+        <label for="checkcontact" class="contactbutton"><div class="mail"></div></label><input id="checkcontact" type="checkbox">
+    
+        <form action="" method="post" class="contactform">
+          <p class="input_wrapper"><input type="text" name="contact_nom" value=""  id ="contact_nom"><label for="contact_nom">NAME</label></p>
+          <p class="input_wrapper"><input type="text" name="contact_email" value=""  id ="contact_email"><label for="contact_email">EMAIL</label></p>
+          <p class="input_wrapper"><input type="text" name="contact_sujet" value=""  id ="contact_sujet"><label for="contact_sujet">SUBJECT</label></p>
+          <p class="textarea_wrapper"><textarea name="contact_message" id="contact_message"></textarea></p>
+          <p class="submit_wrapper"><input type="submit" value="ENVOYER"></p>			
+        </form>
+    </article>
+  </section>
+
+
+</body>
+</html>

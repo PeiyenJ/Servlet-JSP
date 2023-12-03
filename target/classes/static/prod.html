@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Accueillir the Bookstore Web</title>
+  <link rel="stylesheet" href="./prod.css">
+  <link rel="stylesheet">
+  <link rel="stylesheet" href="./tag.css">
+
+  <!-- 1. 引入Vue.js框架 -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <!-- 引入axios套件，用來串接API -->
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+</head>
+
+
+<div class="nav-bar">
+  <a class="btn" href="./list.html">SuperAdmin</a>
+  <a class="btn" href="./faq.html">FAQ問與答</a>
+  <a class="btn" href="./profile.html">會員資料</a>
+</div>
+
+
+<body id="app">
+
+  <div id="header">
+    <h1>Accueillir</h1>
+    <p>The Bookstore Web</p>
+  </div>
+
+  <div class="container">
+    <!-- 卡片資料 -->
+    <div v-for="p in data" class="card">
+      
+      <div class="card-image">
+        <img :src="p.photoUrl">
+      </div>
+
+    
+
+
+      <!-- <button>add ＋ </button> -->
+
+
+
+      <!-- tag標籤 -->
+      <div class="tags">
+        <div class="tag-container">
+          <div class="tag">
+            <div class="tag-side tag-2-side">
+              <div class="tag-text tag-2-text">
+                {{p.storeName}}:{{ p.title }}
+                <div class="rule-diagonal"></div>
+              </div>
+            </div>
+
+            <div class="tag-side tag-2-side is-back">
+              <div class="tag-text tag-2-text">
+                {{ p.description }}
+                <div class="rule-diagonal"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+</body>
+
+<script>
+  const { createApp } = Vue
+
+  // vue初始化
+  createApp(
+    {
+      data() {
+        return {
+          username: '',
+          toastMessage: '',
+          isShowToast: false,
+          isShowForm: false, // 控制新增表單是否要出現
+
+          // 新增商品用的資料結構
+          newProduct: {
+            photoUrl: '',
+            title: '',
+            description: '',
+            price: 0,
+            storeUrl: '',
+            storeName: '',
+          },
+          // 存放商品資訊
+          data: []
+        }
+      },
+      // Vue要使用的方法
+      methods: {
+        // 送出要新增的商品資料
+        onSend() {
+          axios.post('/product', this.newProduct)
+            .then((response) => {
+              // 打API成功
+              if (response.status == 200 && response.data.code == 0) {
+                // alert('新增資料成功');
+                this.showToast('新增資料成功');
+
+                // 將新增的資料丟給畫面顯示
+                this.data.push(JSON.parse(JSON.stringify(this.newProduct)));
+              } else {
+                alert('新增資料失敗');
+              }
+            });
+          // 隱藏對話框
+          this.isShowForm = false;
+        },
+        showToast(msg) {
+          this.isShowToast = true;
+          this.toastMessage = msg;
+
+          setTimeout(() => {
+            this.isShowToast = false;
+          }, 2000);
+        }
+      },
+      // 這個方法會網頁載入完畢後會自動被呼叫
+      mounted() {
+      // let account = localStorage.getItem('login');
+     //  if(account !== 'cafe') {location.href = '/'; return;}
+        
+
+        // 取得網址列參數
+        const queryString = window.location.search;
+        // 解析參數列
+        const parameters = new URLSearchParams(queryString);
+        // 取得使用者名稱
+        this.username = parameters.get('username');
+
+        // 打API要商品資訊
+        axios.get('/product')
+          .then((response) => {
+            // 處理API的response
+            console.log(response);
+
+            if (response.status == 200) { // API呼叫成功 
+              if (response.data.code == 0)  // 取的資料成功
+                this.data = response.data.data; // 將商品資訊存到變數內
+              else
+                this.data = [];  // 清空資料
+            }
+          });
+      }
+    }
+  ).mount('#app');
+
+</script>
+
+</html>

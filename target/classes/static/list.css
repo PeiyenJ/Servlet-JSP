@@ -1,0 +1,403 @@
+*{
+  padding: 0;
+  margin: 15px;
+}
+
+body, tbody {
+  padding: 20px;
+  width: fit-content;
+  background-color: #F0F0F0; 
+}
+
+h1,h2 {
+  text-align: center;
+  font-weight: 300;
+}
+
+.build-product{
+  background-color: #fff;
+}
+
+div{
+  display: flex;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th{
+  color: #0a3251;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+
+thead th {
+  background-color: #202932;
+  color: #fff;
+  text-align: center;
+  padding:10px;
+}
+tr {
+  padding-bottom: 50px;
+  border-bottom: 1px solid #9d9fa0;
+  background-color: rgb(249, 240, 227);
+  
+}
+
+td {
+  max-width: 250px;
+  text-align: center;
+  word-break: break-all;
+}
+
+.addr-col {
+  max-width: 250px;
+  word-break: normal;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.data-title {
+  width: 70%;
+  padding-right: 10px;
+  display: block;
+} 
+
+.select {
+  padding-bottom: 20px;
+  
+}
+
+.select a {
+  margin-right: 5px;
+  margin-bottom: 5px;
+  min-width: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.select a:hover {
+  background-color: yellowgreen;
+}
+
+button {
+  font-size: 15px;
+  padding: 10px;
+  background-color: #003060;
+  color: #fff;
+  border-radius: 5px;
+  border: white;
+  cursor: pointer;
+}
+
+.btn{
+  font-size: 15px;
+  padding: 2px 30px;
+  background-color: #8E8E8E;
+  color: #fff;
+  border-radius: 3px;
+  border: white;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background-color: #4F4F4F;
+}
+
+
+.button {
+  line-height: 1;
+  display: inline-block;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 8px;
+  background-color: #4b908f;
+}
+
+.button-cancel {
+  line-height: 1;
+  display: inline-block;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 8px;
+  background-color: #4b908f;
+  background-color: brown;
+}
+
+.button-ok {
+  line-height: 1;
+  display: inline-block;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 8px;
+  background-color: #4b908f;
+  background-color: midnightblue;
+}
+
+.button-cancel:hover {
+  background-color: brown;
+}
+
+.button-ok:hover {
+  background-color: midnightblue;
+}
+
+
+.toast {
+  background-color: #00aa00;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  border-radius: 30px;
+  position: fixed;
+  top: 10px;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+
+
+/* 以下都是對話盒樣式 */
+.model-container {
+  display: flex;
+  position: fixed;
+  width: 400px;
+  border-radius: 20px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  height: fit-content;
+  flex-direction: column;
+  background-color: white;
+  padding-bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+}
+
+.model-title {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  padding: 20px;
+  font-size: 1.5em;
+  font-weight: 800;
+}
+
+.model-content {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px 10px 20px;
+  gap: 20px;
+  justify-content: center;
+}
+
+.model-icon {
+  width: 32px;
+  height: 32px;
+  margin: 20px;
+  margin-right: 0px;
+  background-color: #e22756;
+}
+
+.model-message {
+  width: 100%;
+  color: #202932;
+}
+
+.model-cancel, .model-ok {
+  width: 120px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+  color: #fff;
+  border: solid ;
+}
+
+.model-cancel {
+  background-color: #e6426b;
+}
+
+.model-ok {
+  background-color: rgb(37, 85, 175);
+}
+
+.editor-input {
+  width: 80%;
+  height: 30px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+
+/*新增按鈕 */
+
+.add-btn {
+  width: 50px;
+  height: 50px;
+  max-height: 50px;
+  max-width: 50px;
+  background-color:rgb(16, 89, 46);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  padding: 0;
+  padding-bottom: 2px;
+  text-decoration: none;
+  gap: 0;
+  border: 0;
+  
+  border-radius: 50px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  z-index: 1;
+}
+
+.add-btn:hover {
+  background-color: rgb(16, 89, 46);
+}
+
+.toast {
+  background-color: red;
+  color: #eee;
+  width: 150px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  position: fixed;
+  top: 40px;
+  z-index: 2;
+}
+
+
+.form {
+  display:unset;
+ 
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 550px;
+  width: 320px;
+  padding-right: 50px;
+
+
+}
+
+.title {
+  color: #970C0A;
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.subtitle {
+  color: #f9f7f7;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.input-container {
+  height: 40px;
+  position: relative;
+  width: 100%;
+}
+
+.ic1 {
+  margin-top: 30px;
+}
+
+.input-container ic2 {
+  margin-top: 50px;
+}
+
+
+
+.input {
+  background-color: #eaeaee;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #5d2727;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 10;
+  width: 100%;
+}
+
+.cut {
+  background-color: #bfc2e7;
+  border-radius: 10px;
+  height: 30px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  
+}
+
+
+
+.input:focus ~ .cut,
+.input:not(:placeholder-shown) ~ .cut {
+  transform: translateY(8px);
+}
+
+.placeholder {
+  color: #a5a5a8;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 35px;
+  transition: transform 200ms, color 200ms;
+  top: 15px;
+  font-size: 0.8em;
+}
+
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.input:not(:placeholder-shown) ~ .placeholder {
+  color: #808097;
+}
+
+.input:focus ~ .placeholder {
+  color: #dc2f55;
+}
+
+.btn-group {
+  display: flex;
+  gap: 20px;
+} 
